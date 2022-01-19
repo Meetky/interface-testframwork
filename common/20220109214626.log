@@ -1,0 +1,4 @@
+2022-01-09 21:46:26,688 - [handle_log.py-->line:48] - INFO: 111111111 -- info
+2022-01-09 21:46:26,689 - [handle_log.py-->line:49] - DEBUG: 111111111 -- info
+2022-01-09 21:46:26,689 - [handle_log.py-->line:50] - WARNING: 111111111 -- info
+2022-01-09 21:46:26,689 - [handle_log.py-->line:51] - ERROR: 111111111 -- info
