@@ -12,5 +12,16 @@
 """
 import os
 
-BASE_PATH = os.path.abspath(__file__)
-print(BASE_PATH)
+"""项目目录"""
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+"""配置目录"""
+CONF_PATH = os.path.join(BASE_PATH, "conf")
+"""数据目录"""
+DATA_PATH = os.path.join(BASE_PATH, "datas")
+"""日志目录"""
+LOG_PATH = os.path.join(BASE_PATH, "logs")
+"""报告目录"""
+REPORT_PATH = os.path.join(BASE_PATH, "reports")
+"""用例目录"""
+CASES_PATH = os.path.join(BASE_PATH, "testcases")
