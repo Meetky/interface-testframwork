@@ -6,15 +6,14 @@
 # @Author  : Con 
 # @Email    :meetky@sina.cn
 # @Site    : 
-# @File    : handle_execl.py
+# @File    : handle_data.py
 # @Software: PyCharm
 
 import openpyxl
 
 
-class HandleExecl:
+class HandleExcel:
     """"""
-
     def __init__(self, file_name, sheet_name):
         self.file = file_name
         self.sheet = sheet_name
@@ -44,6 +43,17 @@ class HandleExecl:
         workbook.save(self.file)
 
 
+class Handle_Yaml:
+    def __init__(self):
+        pass
+
+    def read_yaml(self):
+        pass
+
+    def write_yaml(self):
+        pass
+
+
 if __name__ == '__main__':
-    he = HandleExecl(r"C:\Users\Concon\Documents\test1.xlsx", "test")
+    he = HandleExcel(r"C:\Users\Concon\Documents\test1.xlsx", "test")
     print(he.read_execl())

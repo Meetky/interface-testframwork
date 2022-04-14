@@ -10,8 +10,11 @@
  @Software : PyCharm
 ******************************
 """
-import logging
+import os
 import time
+import logging
+
+from common.handle_path import LOG_PATH
 
 
 def create_log(
@@ -19,7 +22,7 @@ def create_log(
         level="DEBUG",
         fh_level="DEBUG",
         sh_level="DEBUG",
-        logpath=f'{time.strftime("%Y%m%d%H%M%S")}.log',
+        logpath=os.path.join(LOG_PATH, f'{time.strftime("%Y%m%d%H%M%S")}.log'),
 ):
     # 1.创建日志收集器
     log = logging.getLogger(name)
@@ -53,7 +56,12 @@ logger = create_log()
 #
 # if __name__ == '__main__':
 #     log = create_log()
+#     log.info("接口测试开始 -- info")
 #     log.info("111111111 -- info")
-#     log.debug("111111111 -- info")
-#     log.warning("111111111 -- info")
-#     log.error("111111111 -- info")
+#     log.info("111111111 -- info")
+#     log.info("111111111 -- info")
+#     log.info("接口测试结束 -- info")
+
+# log.debug("111111111 -- info")
+# log.warning("111111111 -- info")
+# log.error("111111111 -- info")
