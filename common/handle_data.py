@@ -14,6 +14,7 @@ import openpyxl
 
 class HandleExcel:
     """"""
+
     def __init__(self, file_name, sheet_name):
         self.file = file_name
         self.sheet = sheet_name
@@ -55,5 +56,9 @@ class Handle_Yaml:
 
 
 if __name__ == '__main__':
-    he = HandleExcel(r"C:\Users\Concon\Documents\test1.xlsx", "test")
-    print(he.read_execl())
+    he = HandleExcel(r"D:\Env_Project\interface-testframwork\datas\test.xlsx", "addUser")
+    cases = he.read_execl()
+    for case in cases:
+        print("---------------------------")
+        print(eval(case["expected"])["code"])
+        print("---------------------------")

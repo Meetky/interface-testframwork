@@ -154,15 +154,15 @@
             </li>
             <li class="list-group-item">
                 <button type="button" class="btn btn-success">开始时间</button>
-                <span class="text-dark">2022-01-20 11:28:07</span>
+                <span class="text-dark">2022-04-21 18:29:46</span>
             </li>
             <li class="list-group-item">
                 <button type="button" class="btn btn-success">执行时间</button>
-                <span class="text-dark">0.00 S</span>
+                <span class="text-dark">0.23 S</span>
             </li>
             <li class="list-group-item">
                 <button type="button" class="btn btn-success">用例总数</button>
-                <span class="text-dark">10</span>
+                <span class="text-dark">7</span>
             </li>
 
 
@@ -173,11 +173,11 @@
 
             <li class="list-group-item">
                 <button type="button" class="btn btn-success">成功用例</button>
-                <span class="text-success">10</span>
+                <span class="text-success">6</span>
             </li>
             <li class="list-group-item">
                 <button type="button" class="btn btn-warning">失败用例</button>
-                <span class="text-warning">0</span>
+                <span class="text-warning">1</span>
             </li>
             <li class="list-group-item">
                 <button type="button" class="btn btn-danger">错误用例</button>
@@ -223,7 +223,7 @@
                     <select id="testClass">
                         <option>所有</option>
                         
-                            <option>TestDemo</option>
+                            <option>TestRegister</option>
                         
                     </select>
 
@@ -251,12 +251,12 @@
             
                 <tr>
                     <td>1</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case01_1_1</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_1</td>
                     <td>None</td>
-                    <td>0.0s</td>
+                    <td>0.0788s</td>
                     
-                        <td class="text-success">成功</td>
+                        <td class="text-warning">失败</td>
                     
                     <td>
                         <button type="button" class="btn btn-success btn_info">查看详情</button>
@@ -268,9 +268,58 @@
                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
                         
 
-                            <pre>我是setUp~
-test_case01： 1
-test_case01_1_1 (test_demo1.TestDemo)执行——>【通过】
+                            <pre>test_register_1 (test_register.TestRegister)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "c:\users\raydata\appdata\local\programs\python\python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "c:\users\raydata\appdata\local\programs\python\python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\Envs\interface_testframwork\lib\site-packages\ddt.py", line 191, in wrapper
+    return func(self, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\Env_Project\interface-testframwork\testcases\test_register.py", line 58, in test_register
+    raise e
+</pre>
+                        
+
+                            <pre>  File "D:\Env_Project\interface-testframwork\testcases\test_register.py", line 54, in test_register
+    self.assertEqual(expected["code"], result["code"])
+</pre>
+                        
+
+                            <pre>  File "c:\users\raydata\appdata\local\programs\python\python37\lib\unittest\case.py", line 839, in assertEqual
+    assertion_func(first, second, msg=msg)
+</pre>
+                        
+
+                            <pre>  File "c:\users\raydata\appdata\local\programs\python\python37\lib\unittest\case.py", line 1220, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+</pre>
+                        
+
+                            <pre>  File "c:\users\raydata\appdata\local\programs\python\python37\lib\unittest\case.py", line 680, in fail
+    raise self.failureException(msg)
+</pre>
+                        
+
+                            <pre>AssertionError: '0' != '501301'
+- 0
++ 501301
+
 </pre>
                         
                         
@@ -279,10 +328,10 @@ test_case01_1_1 (test_demo1.TestDemo)执行——>【通过】
             
                 <tr>
                     <td>2</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case01_2_2</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_2</td>
                     <td>None</td>
-                    <td>0.0s</td>
+                    <td>0.0279s</td>
                     
                         <td class="text-success">成功</td>
                     
@@ -296,9 +345,7 @@ test_case01_1_1 (test_demo1.TestDemo)执行——>【通过】
                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
                         
 
-                            <pre>我是setUp~
-test_case01： 2
-test_case01_2_2 (test_demo1.TestDemo)执行——>【通过】
+                            <pre>test_register_2 (test_register.TestRegister)执行——>【通过】
 </pre>
                         
                         
@@ -307,10 +354,10 @@ test_case01_2_2 (test_demo1.TestDemo)执行——>【通过】
             
                 <tr>
                     <td>3</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case01_3_3</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_3</td>
                     <td>None</td>
-                    <td>0.0s</td>
+                    <td>0.0259s</td>
                     
                         <td class="text-success">成功</td>
                     
@@ -324,9 +371,7 @@ test_case01_2_2 (test_demo1.TestDemo)执行——>【通过】
                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
                         
 
-                            <pre>我是setUp~
-test_case01： 3
-test_case01_3_3 (test_demo1.TestDemo)执行——>【通过】
+                            <pre>test_register_3 (test_register.TestRegister)执行——>【通过】
 </pre>
                         
                         
@@ -335,10 +380,10 @@ test_case01_3_3 (test_demo1.TestDemo)执行——>【通过】
             
                 <tr>
                     <td>4</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case01_4_4</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_4</td>
                     <td>None</td>
-                    <td>0.0s</td>
+                    <td>0.0269s</td>
                     
                         <td class="text-success">成功</td>
                     
@@ -352,9 +397,7 @@ test_case01_3_3 (test_demo1.TestDemo)执行——>【通过】
                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
                         
 
-                            <pre>我是setUp~
-test_case01： 4
-test_case01_4_4 (test_demo1.TestDemo)执行——>【通过】
+                            <pre>test_register_4 (test_register.TestRegister)执行——>【通过】
 </pre>
                         
                         
@@ -363,10 +406,10 @@ test_case01_4_4 (test_demo1.TestDemo)执行——>【通过】
             
                 <tr>
                     <td>5</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case01_5_5</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_5</td>
                     <td>None</td>
-                    <td>0.0s</td>
+                    <td>0.024s</td>
                     
                         <td class="text-success">成功</td>
                     
@@ -380,9 +423,7 @@ test_case01_4_4 (test_demo1.TestDemo)执行——>【通过】
                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
                         
 
-                            <pre>我是setUp~
-test_case01： 5
-test_case01_5_5 (test_demo1.TestDemo)执行——>【通过】
+                            <pre>test_register_5 (test_register.TestRegister)执行——>【通过】
 </pre>
                         
                         
@@ -391,10 +432,10 @@ test_case01_5_5 (test_demo1.TestDemo)执行——>【通过】
             
                 <tr>
                     <td>6</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case02_1_a</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_6</td>
                     <td>None</td>
-                    <td>0.0s</td>
+                    <td>0.0259s</td>
                     
                         <td class="text-success">成功</td>
                     
@@ -408,9 +449,7 @@ test_case01_5_5 (test_demo1.TestDemo)执行——>【通过】
                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
                         
 
-                            <pre>我是setUp~
-test_case02： a
-test_case02_1_a (test_demo1.TestDemo)执行——>【通过】
+                            <pre>test_register_6 (test_register.TestRegister)执行——>【通过】
 </pre>
                         
                         
@@ -419,10 +458,10 @@ test_case02_1_a (test_demo1.TestDemo)执行——>【通过】
             
                 <tr>
                     <td>7</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case02_2_b</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_7</td>
                     <td>None</td>
-                    <td>0.0s</td>
+                    <td>0.0249s</td>
                     
                         <td class="text-success">成功</td>
                     
@@ -436,93 +475,7 @@ test_case02_1_a (test_demo1.TestDemo)执行——>【通过】
                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
                         
 
-                            <pre>我是setUp~
-test_case02： b
-test_case02_2_b (test_demo1.TestDemo)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td>8</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case02_3_c</td>
-                    <td>None</td>
-                    <td>0.0s</td>
-                    
-                        <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn-success btn_info">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>我是setUp~
-test_case02： c
-test_case02_3_c (test_demo1.TestDemo)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td>9</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case02_4_d</td>
-                    <td>None</td>
-                    <td>0.0s</td>
-                    
-                        <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn-success btn_info">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>我是setUp~
-test_case02： d
-test_case02_4_d (test_demo1.TestDemo)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td>10</td>
-                    <td class="TestDemo">TestDemo</td>
-                    <td>test_case02_5_e</td>
-                    <td>None</td>
-                    <td>0.0s</td>
-                    
-                        <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn-success btn_info">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>我是setUp~
-test_case02： e
-test_case02_5_e (test_demo1.TestDemo)执行——>【通过】
+                            <pre>test_register_7 (test_register.TestRegister)执行——>【通过】
 </pre>
                         
                         
@@ -658,8 +611,8 @@ test_case02_5_e (test_demo1.TestDemo)执行——>【通过】
                     show: false
                 },
                 data: [
-                    {value: 10, name: '通过'},
-                    {value: 0, name: '失败'},
+                    {value: 6, name: '通过'},
+                    {value: 1, name: '失败'},
                     {value: 0, name: '错误'},
                     {value: 0, name: '跳过'}
                 ]
@@ -680,8 +633,8 @@ test_case02_5_e (test_demo1.TestDemo)执行——>【通过】
             {
                 name: '测试结果',
                 type: 'gauge',
-                detail: {formatter: '100.00%'},
-                data: [{value: '100.00', name: '用例通过率'}],
+                detail: {formatter: '85.71%'},
+                data: [{value: '85.71', name: '用例通过率'}],
                 axisLine: {
                     lineStyle: {
                         color: [

@@ -19,9 +19,9 @@ class Config(ConfigParser):
         self.read(conf_file, encoding="utf-8")
 
 
-conf = Config(r"D:\py_virtualenvwrapper\Projects\interface_test\conf.ini")
+conf = Config(r"D:\Env_Project\interface-testframwork\conf\conf.ini")
 
 if __name__ == '__main__':
-    conf = Config(r"D:\py_virtualenvwrapper\Projects\interface_test\conf.ini")
-    name = conf.get("logging", "name")
-    print(name)
+    conf = Config(r"D:\Env_Project\interface-testframwork\conf\conf.ini")
+    url = conf.get("env", "test_url")
+    print(url)
