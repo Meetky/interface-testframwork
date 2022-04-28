@@ -12,20 +12,44 @@
 """
 import unittest
 import os
-
 import requests
 from ddt import ddt, data
+from jsonpath import jsonpath
 from common.handle_data import HandleExcel
 from common.handle_path import DATA_PATH
 from common.handle_conf import conf
+from common.utils import Utils
 from common.handle_log import logger
 
 
 @ddt
 class TestRegister(unittest.TestCase):
     excel = HandleExcel(os.path.join(DATA_PATH, "test.xlsx"), "addUser")
+    login_excel = HandleExcel(os.path.join(DATA_PATH, "test.xlsx"), "admin")
     cases = excel.read_execl()
     url = conf.get("env", "test_url")
+    login_info = login_excel.read_execl()
+    utils = Utils()
+
+    # 登录获取token
+    @classmethod
+    def setUpClass(cls) -> None:
+        img_url = cls.url + cls.login_info[0]["path"]
+        img_method = cls.login_info[0]["method"].lower()
+        login_url = cls.url + cls.login_info[1]["path"]
+        login_method = cls.login_info[1]["method"].lower()
+        login_data = eval(cls.login_info[1]["params"])
+        # 获取参数
+        img_data = requests.request(img_method, img_url)
+        code = cls.utils.code_ocr(img_data.content)
+        headers = {
+            "content-type": "application/json;charset=UTF-8",
+            "access-code": img_data.headers["Access-code"]
+        }
+        login_data.update({"code": code})
+        # 登录
+        res = requests.request(login_method, login_url, json=login_data, headers=headers)
+        cls.token = "bearer " + jsonpath(res.json(), "$.data")[0]
 
     @data(*cases)
     def test_register(self, case):
@@ -37,7 +61,7 @@ class TestRegister(unittest.TestCase):
         expected = eval(case["expected"])  # 预期结果
         headers = {
             "content-type": "application/json;charset=UTF-8",
-            "authorization": "bearer eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7InVzZXJJZCI6MzAsInVzZXJOYW1lIjoi6Jyh56yU5bCP6ZSIIiwidXNlckxvZ2luIjoiMTg2MTM4NzI4OTgiLCJwYXNzd29yZCI6IjMyNWJmY2MxZWEyODVlOGZmNDE3MGEyMTk3M2VkMjIxIiwiaGVhZEltZ2VVcmwiOiJodHRwczovL3Rlc3QtcHJpdmF0ZS5yYXlkYXRhLnByby9yYXlkYXRhL3VwbG9hZC8yMDIyMDMyMS9pbWFnZS9kZTVkZmI4ZWVhZWI0ZjkzYjUxYmFlZjI5OGM5MzQxNy5wbmciLCJwaG9uZSI6IiIsImVtYWlsIjoiIiwic2V4IjotMSwidXNlclNvdXJjZSI6MSwicmVtYXJrIjoiIiwic3RhdHVzIjoxMDAwMSwiY3JlYXRlQnkiOjAsImNyZWF0ZVRpbWUiOjE2NDczMjg4Njg4MTksInVwZGF0ZUJ5IjowLCJ1cGRhdGVUaW1lIjoxNjUwMDEwODUyMDAwLCJncm91cHMiOm51bGwsInJhbmdlRmxhZyI6bnVsbCwicm9sZUlkcyI6bnVsbCwicm9sZUxpc3QiOm51bGwsInVzZXJJZGVudGl0eSI6bnVsbCwiaXNGb2xkZXJDcmVhdGVyIjoxLCJwZXJBcnJheSI6bnVsbCwiZ3JvdXBJZCI6bnVsbCwiYWNjb3VudFN0YXRlIjpudWxsLCJleGlzdFVzZXIiOnRydWV9LCJzdWIiOiIzMCIsImlhdCI6MTY1MDUyMTI4MCwiZXhwIjoxNjUwNTU3MjgwfQ.6wnLQZHmx7Z5Y3PlELlGwnhbuvKGQ82e7NlsD3okWH4swdEfrIgLMnCmKkXvrVansRTlhm6SCnuMgRyOCRcHxA",
+            "authorization": self.token,
             "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
         }
 
