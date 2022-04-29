@@ -6,13 +6,13 @@
 # @Author  : Con 
 # @Email    :meetky@sina.cn
 # @Site    : 
-# @File    : handle_data.py
+# @File    : operation_data.py
 # @Software: PyCharm
 
 import openpyxl
 
 
-class HandleExcel:
+class OperationExcel:
     """"""
 
     def __init__(self, file_name, sheet_name):
@@ -44,7 +44,7 @@ class HandleExcel:
         workbook.save(self.file)
 
 
-class Handle_Yaml:
+class OperationYaml:
     def __init__(self):
         pass
 
@@ -56,7 +56,7 @@ class Handle_Yaml:
 
 
 if __name__ == '__main__':
-    he = HandleExcel(r"D:\Env_Project\interface-testframwork\datas\test.xlsx", "addUser")
+    he = OperationExcel(r"D:\Env_Project\interface-testframwork\datas\test.xlsx", "addUser")
     cases = he.read_execl()
     for case in cases:
         print("---------------------------")

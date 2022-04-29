@@ -14,7 +14,7 @@ import os
 import time
 import unittest
 from unittestreport import TestRunner
-from common.handle_path import CASES_PATH, REPORT_PATH
+from common.operation_path import CASES_PATH, REPORT_PATH
 
 # 创建测试套件
 suite = unittest.defaultTestLoader.discover(CASES_PATH)

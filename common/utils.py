@@ -12,7 +12,7 @@
 """
 import os
 import ddddocr
-from common.handle_path import DATA_PATH
+from common.operation_path import DATA_PATH
 
 
 class Utils:
@@ -29,4 +29,10 @@ class Utils:
 if __name__ == '__main__':
     import pymysql
 
-    conn = pymysql.connect()
+    conn = pymysql.connect(
+        host="127.0.0.1", port=3306, user="root", password="123456", charset="utf8"
+    )
+    cur = conn.cursor()
+    sql = "use atguigudb;select * from employees;"
+    cur.execute(sql)
+    print(cur.fetchall())

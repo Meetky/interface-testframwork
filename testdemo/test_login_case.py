@@ -11,13 +11,13 @@
 import unittest
 from ddt import ddt, data
 
-from common.handle_data import HandleExcel
+from common.operation_data import OperationExcel
 from testdemo.login_func import login_check
 
 # from unittestreport import ddt, list_data
 
 
-execl = HandleExcel(r"C:\Users\Concon\Documents\test1.xlsx", "test")
+execl = OperationExcel(r"C:\Users\Concon\Documents\test1.xlsx", "test")
 
 cases = execl.read_execl()
 

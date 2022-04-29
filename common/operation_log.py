@@ -5,7 +5,7 @@
  @Email    : meetky@sina.cn
  @Project  : interface_test
  @Date     : 2022-01-09 14:10
- @File     : handle_log.py
+ @File     : operation_log.py
  @Description: 
  @Software : PyCharm
 ******************************
@@ -14,7 +14,7 @@ import os
 import time
 import logging
 
-from common.handle_path import LOG_PATH
+from common.operation_path import LOG_PATH
 
 
 def create_log(

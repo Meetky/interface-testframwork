@@ -15,17 +15,17 @@ import os
 import requests
 from ddt import ddt, data
 from jsonpath import jsonpath
-from common.handle_data import HandleExcel
-from common.handle_path import DATA_PATH
-from common.handle_conf import conf
+from common.operation_data import OperationExcel
+from common.operation_path import DATA_PATH
+from common.operation_conf import conf
 from common.utils import Utils
-from common.handle_log import logger
+from common.operation_log import logger
 
 
 @ddt
 class TestRegister(unittest.TestCase):
-    excel = HandleExcel(os.path.join(DATA_PATH, "test.xlsx"), "addUser")
-    login_excel = HandleExcel(os.path.join(DATA_PATH, "test.xlsx"), "admin")
+    excel = OperationExcel(os.path.join(DATA_PATH, "test.xlsx"), "addUser")
+    login_excel = OperationExcel(os.path.join(DATA_PATH, "test.xlsx"), "admin")
     cases = excel.read_execl()
     url = conf.get("env", "test_url")
     login_info = login_excel.read_execl()
